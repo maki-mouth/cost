@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CostController::class, 'index']);
+Route::post('/costs', [CostController::class, 'create']);
+Route::patch('/costs/update', [CostController::class, 'update']);
+Route::delete('/costs/delete', [CostController::class, 'destroy']);
